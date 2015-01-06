@@ -1,0 +1,119 @@
+package Biblioteka;
+public class LiczbyRzymskie {
+	
+	/*klasa pobiera liczba Arabska w postaci String do 9999 (Liczby Rzymskie nie mają odpowiednika 10'000 i większych)
+	przeksztalca i zwraca ja String w postaci liczby Rzymskiej*/
+
+	/**
+	 * 
+	 * @param liczbaArabska ;liczbe w postaci String do 9999 (Liczby Rzymskie nie mają odpowiednika 10'000 i większych)
+	 * @return String w postaci liczby Rzymskiej
+	 */
+	public String przeksztalcArabskieNaRzymskie(String liczbaArabska) {	
+		String liczbaRzymska = "";
+		char jednosci = 'z';
+		char dziesiatki = 'z';
+		char setki = 'z';
+		char tysiace = 'z';
+		if (liczbaArabska.length() == 4) {
+			jednosci = liczbaArabska.charAt(liczbaArabska.length() - 1);
+			dziesiatki = liczbaArabska.charAt(liczbaArabska.length() - 2);
+			setki = liczbaArabska.charAt(liczbaArabska.length() - 3);
+			tysiace = liczbaArabska.charAt(liczbaArabska.length() - 4);
+		}
+		if (liczbaArabska.length() == 3) {
+			jednosci = liczbaArabska.charAt(liczbaArabska.length() - 1);
+			dziesiatki = liczbaArabska.charAt(liczbaArabska.length() - 2);
+			setki = liczbaArabska.charAt(liczbaArabska.length() - 3);
+		}
+		if (liczbaArabska.length() == 2) {
+			jednosci = liczbaArabska.charAt(liczbaArabska.length() - 1);
+			dziesiatki = liczbaArabska.charAt(liczbaArabska.length() - 2);
+		}
+		if (liczbaArabska.length() == 1) {
+			jednosci = liczbaArabska.charAt(liczbaArabska.length() - 1);
+		}
+
+		if (tysiace == '1')
+			liczbaRzymska = liczbaRzymska + "M";
+		else if (tysiace == '2')
+			liczbaRzymska = liczbaRzymska + "MM";
+		else if (tysiace == '3')
+			liczbaRzymska = liczbaRzymska + "MMM";
+		else if (tysiace == '4')
+			liczbaRzymska = liczbaRzymska + "MMMM";
+		else if (tysiace == '5')
+			liczbaRzymska = liczbaRzymska + "MMMMM";
+		else if (tysiace == '6')
+			liczbaRzymska = liczbaRzymska + "MMMMMM";
+		else if (tysiace == '7')
+			liczbaRzymska = liczbaRzymska + "MMMMMMM";
+		else if (tysiace == '8')
+			liczbaRzymska = liczbaRzymska + "MMMMMMMM";
+		else if (tysiace == '9')
+			liczbaRzymska = liczbaRzymska + "MMMMMMMMM";
+
+		if (setki == '1')
+			liczbaRzymska = liczbaRzymska + "C";
+		else if (setki == '2')
+			liczbaRzymska = liczbaRzymska + "CC";
+		else if (setki == '3')
+			liczbaRzymska = liczbaRzymska + "CCC";
+		else if (setki == '4')
+			liczbaRzymska = liczbaRzymska + "CD";
+		else if (setki == '5')
+			liczbaRzymska = liczbaRzymska + "D";
+		else if (setki == '6')
+			liczbaRzymska = liczbaRzymska + "DC";
+		else if (setki == '7')
+			liczbaRzymska = liczbaRzymska + "DCC";
+		else if (setki == '8')
+			liczbaRzymska = liczbaRzymska + "DCCC";
+		else if (setki == '9')
+			liczbaRzymska = liczbaRzymska + "CM";
+
+		if (dziesiatki == '1')
+			liczbaRzymska = liczbaRzymska + "X";
+		else if (dziesiatki == '2')
+			liczbaRzymska = liczbaRzymska + "XX";
+		else if (dziesiatki == '3')
+			liczbaRzymska = liczbaRzymska + "XXX";
+		else if (dziesiatki == '4')
+			liczbaRzymska = liczbaRzymska + "XL";
+		else if (dziesiatki == '5')
+			liczbaRzymska = liczbaRzymska + "L";
+		else if (dziesiatki == '6')
+			liczbaRzymska = liczbaRzymska + "LX";
+		else if (dziesiatki == '7')
+			liczbaRzymska = liczbaRzymska + "LXX";
+		else if (dziesiatki == '8')
+			liczbaRzymska = liczbaRzymska + "LXXX";
+		else if (dziesiatki == '9')
+			liczbaRzymska = liczbaRzymska + "XC";
+
+		if (jednosci == '1')
+			liczbaRzymska = liczbaRzymska + "I";
+		else if (jednosci == '2')
+			liczbaRzymska = liczbaRzymska + "II";
+		else if (jednosci == '3')
+			liczbaRzymska = liczbaRzymska + "III";
+		else if (jednosci == '4')
+			liczbaRzymska = liczbaRzymska + "IV";
+		else if (jednosci == '5')
+			liczbaRzymska = liczbaRzymska + "V";
+		else if (jednosci == '6')
+			liczbaRzymska = liczbaRzymska + "VI";
+		else if (jednosci == '7')
+			liczbaRzymska = liczbaRzymska + "VII";
+		else if (jednosci == '8')
+			liczbaRzymska = liczbaRzymska + "VIII";
+		else if (jednosci == '9')
+			liczbaRzymska = liczbaRzymska + "IX";
+
+		return liczbaRzymska;
+	}
+
+	// metoda rzymskie na arabskie byłaby nieco bardziej skoplikowana, lecz
+	// trywialna - należało by wyszukać konkretny ciąg znaków np. "DCC" albo
+	// 'VI' i zgodnie z powyższą metodą stworzyć liczbę w postaci arabskiej
+}
