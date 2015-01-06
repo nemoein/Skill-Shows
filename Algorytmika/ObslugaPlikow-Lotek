@@ -1,0 +1,61 @@
+package Biblioteka;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Lotek {
+	/*Program pobiera z pliku ds.txt historię wszystkich losowań dużego lotka (od 1957r.) analizuje go, oraz wyświetla
+	ile razy padła konkretna liczba, jest to gotowy szlablon do dalszej analizy*/
+
+	public static void main(String[] a) {
+		String[] liczby = new String[5565];
+		int i = 0;
+
+		try {
+			// Uworzenie obiektu FileReader
+			FileReader fileReader = new FileReader("C:/dl.txt");
+
+			// Utworzenie obiektu bufferReader
+			BufferedReader bufferReader = new BufferedReader(fileReader);
+
+			String linia;
+
+			while ((linia = bufferReader.readLine()) != null) {
+				liczby[i] = linia;
+				// System.out.println(liczby[i]);
+				i++;
+			}
+			// System.out.println(linia);
+			fileReader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		int wystopienia[] = new int[49];
+		for (int j = 0; j <= 48; j++) {
+			wystopienia[j] = 0;
+		}
+
+		for (i = 0; i < 5565; i++) {
+			liczby[i] = liczby[i].substring(liczby[i].lastIndexOf(" "));
+			liczby[i] = liczby[i].replaceAll(",", " ") + " ";
+			
+
+		}
+
+		for (i = 0; i < 5565; i++) {
+			for (int j = 0; j <= 48; j++) {
+				if (liczby[i].indexOf(" " + (j + 1) + " ") != -1) {
+					wystopienia[j] = wystopienia[j] + 1;
+				}
+			}
+
+		}
+		for (int j = 0; j < +49; j++) {
+			System.out.println(" | " + (j + 1) + " jest " + wystopienia[j]);
+		}
+
+	}
+}
