@@ -1,0 +1,30 @@
+package Biblioteka;
+
+import java.util.ArrayList;
+
+public class Sortowanie {
+
+	ArrayList<Integer> Lista = new ArrayList<Integer>();
+
+	/**
+	 * @param kolekcja ArrayList z liczbami Integer
+	 * @return posortowana tablica (od najmniejszego do najwiekszego)
+	 */
+	public static ArrayList<Integer> sortuj(ArrayList<Integer> lista) {
+		int tymczasowa = 0;
+		for (int j = 0; j < lista.size(); j++) {
+			for (int i = 0; i < lista.size() - 1; i++) {
+				if (lista.get(i + 1) < lista.get(i)) {
+					tymczasowa = lista.get(i);
+					lista.set(i, lista.get(i + 1));
+					lista.set(i + 1, tymczasowa);
+				}
+
+				// System.out.print(lista.get(i) + " .");
+			}
+		}
+
+		return lista;
+	}
+
+}
