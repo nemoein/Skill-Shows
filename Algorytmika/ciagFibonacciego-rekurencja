@@ -1,0 +1,15 @@
+package Biblioteka;
+
+public class CiagFibonacciego {
+	
+	public static int fib (int n){
+		//Prosta metoda rekurencyjna (wywołująca same siebie) zwracająca zadany elemnt ciągu Fibonacciego
+		
+		if (n<3)
+			return 1;
+		else{
+			return fib(n-1)+fib(n-2);
+		}	
+	}
+
+}
