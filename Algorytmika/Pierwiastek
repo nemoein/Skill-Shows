@@ -1,0 +1,41 @@
+public double pierwiastek(double liczba) {
+		
+		/*Metoda pobiera dowolną liczbę, wylicza i zwraca jej pierwiastek bez uzycia zadnych zewnetrznych klas typu Math
+		w metodzie można jeszcze zoptymalizować przyjmowanie wartosci poczatkowej oraz dodac kolejna petle odpowiadajaca za
+		pierwiastki wiekszego stopnia jak znajde czas to dodam :P*/
+
+		if (liczba < 0) {
+			System.out
+					.println("Liczby ujemne nie posiadaja pierwiastków rzeczywistych");
+
+		} else if (liczba == 0 || liczba == 1) {
+			wynik = liczba / 2;
+		} else {
+		
+
+			wynik = liczba / 2;
+			double dokladnosc = 1;
+			double modyfikator = wynik / 2;
+
+			do {
+				if (wynik * wynik > liczba) {
+					wynik = wynik - modyfikator;
+					modyfikator = modyfikator / 2;
+					dokladnosc = liczba - wynik * wynik;
+					if (dokladnosc < 0) {
+						dokladnosc = -dokladnosc;
+					}
+					// System.out.print(wynik + " ");
+				} else if (wynik * wynik < liczba) {
+					wynik = wynik + modyfikator;
+					modyfikator = modyfikator / 2;
+					dokladnosc = liczba - wynik * wynik;
+					if (dokladnosc < 0) {
+						dokladnosc = -dokladnosc;
+					}
+					// System.out.print(wynik + " ");
+				}
+			} while (dokladnosc > 0.001);
+		}
+		return wynik;
+	}
